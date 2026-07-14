@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonabola · Vídeos por nivel de consciencia — Navy Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0D0C;
+    --ink-2:#141817;
+    --paper:#F2F0EA;
+    --paper-dim:#D9D6CC;
+    --muted:#8B8F8C;
+    --line:#26302C;
+    --accent:#00D4AA;
+    --n1:#1E5BD6;
+    --n2:#1E86C9;
+    --n3:#23B07F;
+    --n4:#E8913C;
+    --n5:#D85A6A;
+    --maxw:940px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'DM Sans',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:90px 0 60px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'DM Mono',monospace;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:26px;
+  }
+  h1{
+    font-family:'Syne',sans-serif;
+    font-weight:800;
+    font-size:clamp(34px,5.4vw,60px);
+    line-height:1.04;
+    letter-spacing:-.02em;
+    margin-bottom:22px;
+  }
+  h1 em{font-style:normal;color:var(--accent)}
+  .lede{
+    font-size:19px;
+    color:var(--paper-dim);
+    max-width:640px;
+    margin-bottom:38px;
+  }
+  .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    border-top:1px solid var(--line);
+    padding-top:22px;
+  }
+  .meta div{
+    padding-right:36px;
+    margin-right:36px;
+    border-right:1px solid var(--line);
+  }
+  .meta div:last-child{border-right:none;padding-right:0;margin-right:0}
+  .meta dt{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:4px;
+  }
+  .meta dd{font-size:15px;font-weight:500}
+
+  /* ---------- HOW TO READ ---------- */
+  .primer{
+    padding:44px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .primer h2{
+    font-family:'Syne',sans-serif;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.04em;
+    margin-bottom:16px;
+  }
+  .primer p{
+    color:var(--paper-dim);
+    font-size:16px;
+    max-width:660px;
+    margin-bottom:12px;
+  }
+  .primer p:last-child{margin-bottom:0}
+  .primer strong{color:var(--paper);font-weight:700}
+
+  /* ---------- LADDER ---------- */
+  .ladder{padding:52px 0 8px}
+  .ladder h2{
+    font-family:'Syne',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:22px;
+  }
+  .rungs{display:flex;flex-direction:column;gap:2px}
+  .rung{
+    display:grid;
+    grid-template-columns:52px 1fr auto auto;
+    align-items:center;
+    gap:16px;
+    padding:14px 18px;
+    background:var(--ink-2);
+    border-left:3px solid var(--lvl);
+    text-decoration:none;
+    color:inherit;
+    transition:background .16s ease,transform .16s ease;
+  }
+  .rung:hover,.rung:focus-visible{background:#1B211F;transform:translateX(3px)}
+  .rung:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .rung .num{
+    font-family:'Syne',sans-serif;
+    font-weight:800;
+    font-size:26px;
+    color:var(--lvl);
+    line-height:1;
+  }
+  .rung .name{font-weight:700;font-size:16px}
+  .rung .name span{
+    display:block;
+    font-weight:400;
+    font-size:13px;
+    color:var(--muted);
+    margin-top:1px;
+  }
+  .rung .share{
+    font-family:'DM Mono',monospace;
+    font-size:15px;
+    color:var(--paper-dim);
+  }
+  .rung .lane{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--muted);
+    min-width:64px;
+    text-align:right;
+  }
+  .goldrule{
+    margin-top:20px;
+    padding:16px 18px;
+    background:rgba(0,212,170,.07);
+    border-left:3px solid var(--accent);
+    font-size:15px;
+    color:var(--paper-dim);
+  }
+  .goldrule strong{color:var(--accent);font-weight:700}
+
+  /* ---------- LEVEL SECTION---------- */
+  .level{padding:64px 0 0}
+  .level-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    padding-bottom:14px;
+    border-bottom:2px solid var(--lvl);
+    margin-bottom:6px;
+  }
+  .level-head .lnum{
+    font-family:'Syne',sans-serif;
+    font-weight:800;
+    font-size:42px;
+    color:var(--lvl);
+    line-height:1;
+  }
+  .level-head h2{
+    font-family:'Syne',sans-serif;
+    font-weight:700;
+    font-size:26px;
+    letter-spacing:-.01em;
+  }
+  .level-head .tag{
+    margin-left:auto;
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .level-note{
+    color:var(--muted);
+    font-size:15px;
+    margin:14px 0 34px;
+    max-width:680px;
+  }
+
+  /* ---------- VIDEO CARD ---------- */
+  .vid{
+    background:var(--ink-2);
+    border:1px solid var(--line);
+    margin-bottom:26px;
+  }
+  .vid-top{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:20px 26px;
+    border-bottom:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .vid-id{
+    font-family:'DM Mono',monospace;
+    font-size:12px;
+    color:var(--lvl);
+    letter-spacing:.08em;
+  }
+  .vid-title{
+    font-family:'Syne',sans-serif;
+    font-weight:700;
+    font-size:21px;
+    letter-spacing:-.01em;
+    flex:1;
+    min-width:220px;
+  }
+  .chip{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border:1px solid var(--line);
+    color:var(--paper-dim);
+    white-space:nowrap;
+  }
+  .chip.fmt{border-color:var(--lvl);color:var(--lvl)}
+
+  .block{
+    display:grid;
+    grid-template-columns:112px 1fr;
+    gap:24px;
+    padding:24px 26px;
+    border-bottom:1px solid rgba(38,48,44,.55);
+  }
+  .block:last-child{border-bottom:none}
+  .block-label{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    padding-top:5px;
+  }
+  .block-label b{display:block;color:var(--paper);font-weight:500}
+  .block-label i{
+    display:block;
+    font-style:normal;
+    font-size:10px;
+    color:var(--muted);
+    margin-top:3px;
+    letter-spacing:.06em;
+  }
+
+  /* the signature: literal lines are typeset as spoken script */
+  .literal{
+    font-family:'Syne',sans-serif;
+    font-weight:600;
+    font-size:clamp(19px,2.4vw,24px);
+    line-height:1.35;
+    letter-spacing:-.01em;
+    color:var(--paper);
+    padding-left:20px;
+    border-left:3px solid var(--lvl);
+  }
+  .literal.cta{border-left-color:var(--accent)}
+
+  .idea p{color:var(--paper-dim);margin-bottom:12px}
+  .idea p:last-child{margin-bottom:0}
+  .idea ol{margin:12px 0 12px 20px;color:var(--paper-dim)}
+  .idea ol li{margin-bottom:7px;padding-left:4px}
+  .idea strong{color:var(--paper);font-weight:700}
+
+  .lever{
+    background:rgba(0,212,170,.06);
+    border-left:3px solid var(--accent);
+    padding:14px 16px;
+    font-size:15px;
+    color:var(--paper-dim);
+  }
+  .lever b{
+    display:block;
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:5px;
+    font-weight:500;
+  }
+
+  .notes{
+    padding:22px 26px;
+    background:rgba(255,255,255,.018);
+    border-top:1px solid var(--line);
+  }
+  .notes p{
+    font-size:15px;
+    color:var(--muted);
+    margin-bottom:9px;
+  }
+  .notes p:last-child{margin-bottom:0}
+  .notes b{color:var(--paper-dim);font-weight:700}
+  .notes .warn{color:#F0B37A}
+  .notes .warn b{color:#F0B37A}
+
+  /* ---------- RULES ---------- */
+  .rules{
+    margin:80px 0 0;
+    padding:34px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .rules h2{
+    font-family:'Syne',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:20px;
+  }
+  .rules ul{list-style:none}
+  .rules li{
+    padding:11px 0 11px 26px;
+    border-bottom:1px solid rgba(38,48,44,.5);
+    color:var(--paper-dim);
+    font-size:15px;
+    position:relative;
+  }
+  .rules li:last-child{border-bottom:none}
+  .rules li::before{
+    content:"—";
+    position:absolute;
+    left:0;
+    color:var(--accent);
+  }
+  .rules li b{color:var(--paper);font-weight:700}
+
+  footer{
+    padding:40px 0 70px;
+    color:var(--muted);
+    font-size:14px;
+  }
+  footer .brandline{
+    font-family:'Syne',sans-serif;
+    font-weight:700;
+    letter-spacing:.28em;
+    color:var(--paper-dim);
+    font-size:13px;
+    margin-bottom:10px;
+  }
+
+  @media(max-width:720px){
+    .meta{flex-direction:column;gap:16px}
+    .meta div{border-right:none;padding-right:0;margin-right:0}
+    .rung{grid-template-columns:40px 1fr;row-gap:6px}
+    .rung .share,.rung .lane{grid-column:2;text-align:left}
+    .block{grid-template-columns:1fr;gap:12px}
+    .block-label{padding-top:0}
+    .level-head{flex-wrap:wrap}
+    .level-head .tag{margin-left:0;width:100%}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Navy Marketing · Briefing creativo · Julio 2026</p>
+    <h1>Ocho vídeos, cinco niveles.<br><em>A cada jugador se le habla distinto.</em></h1>
+    <p class="lede">No es lo mismo hablarle a quien juega con la pala de siempre sin cuestionarla que a quien ya tiene una Bonabola en el carrito. Este briefing baja un vídeo por cada momento del recorrido, con el gancho y el cierre escritos palabra por palabra.</p>
+    <dl class="meta">
+      <div><dt>Marca</dt><dd>Bonabola</dd></div>
+      <div><dt>Piezas</dt><dd>8 vídeos</dd></div>
+      <div><dt>Formato</dt><dd>Vertical 9:16 · Reels + Stories</dd></div>
+      <div><dt>Buyer</dt><dd>Hombre 18–34</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="primer">
+  <div class="wrap">
+    <h2>Cómo se lee este documento</h2>
+    <p><strong>El gancho y el cierre son literales.</strong> Están escritos palabra por palabra y se graban tal cual. Son las dos piezas que deciden si el vídeo retiene y si convierte, así que no se improvisan.</p>
+    <p><strong>El desarrollo no es un guion.</strong> Aquí solo va la idea y la palanca que sostiene la atención. Ni planos, ni segundos, ni dirección de rodaje: eso es decisión de quien graba.</p>
+    <p><strong>El cierre cambia según el nivel.</strong> En frío no se vende. Se vende cuando el jugador ya sabe quién eres.</p>
+  </div>
+</section>
+
+<section class="ladder">
+  <div class="wrap">
+    <h2>Los cinco niveles</h2>
+    <div class="rungs">
+      <a class="rung" href="#n1" style="--lvl:var(--n1)">
+        <span class="num">1</span>
+        <span class="name">Inconsciente<span>Juega con su pala y no se plantea que sea el problema</span></span>
+        <span class="share">30%</span>
+        <span class="lane">TOFU frío</span>
+      </a>
+      <a class="rung" href="#n2" style="--lvl:var(--n2)">
+        <span class="num">2</span>
+        <span class="name">Consciente del problema<span>Le vibra, le duele el codo, la pala se desfonda. No busca solución</span></span>
+        <span class="share">30%</span>
+        <span class="lane">TOFU frío</span>
+      </a>
+      <a class="rung" href="#n3" style="--lvl:var(--n3)">
+        <span class="num">3</span>
+        <span class="name">Consciente de la solución<span>Sabe que hay palas mejores y está comparando marcas</span></span>
+        <span class="share">30%</span>
+        <span class="lane">TOFU + interés</span>
+      </a>
+      <a class="rung" href="#n4" style="--lvl:var(--n4)">
+        <span class="num">4</span>
+        <span class="name">Consciente del producto<span>Ya conoce Bonabola pero no ha comprado</span></span>
+        <span class="share">7%</span>
+        <span class="lane">MOFU</span>
+      </a>
+      <a class="rung" href="#n5" style="--lvl:var(--n5)">
+        <span class="num">5</span>
+        <span class="name">El más consciente<span>Listo para comprar, le falta el último empujón</span></span>
+        <span class="share">3%</span>
+        <span class="lane">BOFU</span>
+      </a>
+    </div>
+    <p class="goldrule"><strong>La regla de oro.</strong> Los niveles 1 y 2 son el 60% del mercado y de ahí sale el grueso de la facturación. Por eso cuatro de los ocho vídeos viven ahí, y por eso ninguno de ellos vende.</p>
+  </div>
+</section>
+
+<!-- ============ NIVEL 1 ============ -->
+<section class="level" id="n1" style="--lvl:var(--n1)">
+  <div class="wrap">
+    <div class="level-head">
+      <span class="lnum">1</span>
+      <h2>Inconsciente</h2>
+      <span class="tag">TOFU frío · Prospecting broad</span>
+    </div>
+    <p class="level-note">No sabe que su pala es el problema. Aquí no se vende nada: si le pides la compra a los treinta segundos de conocerte, sube el CPA y tampoco compra. Los dos cierres son de identidad de marca. La venta se rescata más abajo.</p>
+
+    <!-- V1 -->
+    <article class="vid">
+      <div class="vid-top">
+        <span class="vid-id">V01</span>
+        <span class="vid-title">Así nace una pala</span>
+        <span class="chip fmt">Storytelling</span>
+        <span class="chip">30–40 s</span>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Gancho</b><i>literal</i></div>
+        <p class="literal">"Esto que estás viendo no es una fábrica. Es un taller. Y aquí las palas se hacen de una en una."</p>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Desarrollo</b><i>idea, no guion</i></div>
+        <div class="idea">
+          <p>Recorrer el nacimiento de una pala desde el material en bruto hasta la pieza acabada. El vídeo no explica ventajas ni habla de rendimiento: solo enseña el proceso y deja que hable por sí solo.</p>
+          <div class="lever">
+            <b>Palanca de retención</b>
+            La promesa de ver algo terminarse. Quien entra por el gancho se queda porque quiere ver la pala acabada. Es el mismo mecanismo que hizo funcionar «Bonabola is born here» (VTR 41,7%) y el reel de gripping: el proceso engancha por curiosidad, no por argumento.
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Cierre</b><i>literal</i></div>
+        <p class="literal cta">"Así es como lo hacemos nosotros. Bonabola."</p>
+      </div>
+      <div class="notes">
+        <p><b>Sin oferta, sin enlace, sin urgencia.</b> El cierre solo planta la marca: Bonabola hace las cosas de otra manera.</p>
+      </div>
+    </article>
+
+    <!-- V2 -->
+    <article class="vid">
+      <div class="vid-top">
+        <span class="vid-id">V02</span>
+        <span class="vid-title">Lo que nadie te cuenta de tu pala</span>
+        <span class="chip fmt">Educativo</span>
+        <span class="chip">35–45 s</span>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Gancho</b><i>literal</i></div>
+        <p class="literal">"Tu pala tiene tres capas por dentro y probablemente no sabes cómo es ninguna."</p>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Desarrollo</b><i>idea, no guion</i></div>
+        <div class="idea">
+          <p>Abrir una pala y enseñar qué hay dentro: núcleo, fibra, marco. Explicar qué hace cada parte y cómo cambia lo que sientes al golpear. Didáctico, sin tecnicismos, como quien te enseña algo y no como quien te vende algo.</p>
+          <div class="lever">
+            <b>Palanca de retención</b>
+            Revelar el interior de un objeto que usa cada semana y nunca ha visto por dentro. Curiosidad pura. Y como el gancho afirma que no lo sabe, se queda a comprobar si es verdad.
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Cierre</b><i>literal</i></div>
+        <p class="literal cta">"En Bonabola elegimos qué va dentro porque las hacemos nosotros."</p>
+      </div>
+      <div class="notes">
+        <p><b>El diferencial cae solo.</b> El cierre no pide nada: la fábrica propia aparece como consecuencia natural de lo que acaba de ver. Lo que le queda es «estos saben de lo que hablan».</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ NIVEL 2 ============ -->
+<section class="level" id="n2" style="--lvl:var(--n2)">
+  <div class="wrap">
+    <div class="level-head">
+      <span class="lnum">2</span>
+      <h2>Consciente del problema</h2>
+      <span class="tag">TOFU frío · Prospecting broad</span>
+    </div>
+    <p class="level-note">Siente el problema pero todavía no busca solución. Empujón suave, sin descuento y sin pedir clic. El cierre deja la idea instalada y nada más.</p>
+
+    <!-- V3 -->
+    <article class="vid">
+      <div class="vid-top">
+        <span class="vid-id">V03</span>
+        <span class="vid-title">Tu codo no es el problema</span>
+        <span class="chip fmt">Resolución de problemas</span>
+        <span class="chip">35–45 s</span>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Gancho</b><i>literal</i></div>
+        <p class="literal">"Si acabas los partidos con el codo cargado, no es tu técnica. Es la pala."</p>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Desarrollo</b><i>idea, no guion</i></div>
+        <div class="idea">
+          <p>Explicar de dónde sale ese dolor: cada bola que golpeas devuelve una vibración por el brazo, y una pala mal construida no la absorbe, te la pasa entera. Enseñar la diferencia entre una pala que amortigua y una que no. Aterrizar en cómo está construida una Bonabola para que esa vibración se quede en la pala y no en el codo.</p>
+          <div class="lever">
+            <b>Palanca de retención</b>
+            El gancho le quita la culpa de encima. Lleva tiempo pensando que juega mal o que se está haciendo mayor, y le dices que no es él. Eso no se abandona a medias: se queda a oír de quién es la culpa entonces.
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Cierre</b><i>literal</i></div>
+        <p class="literal cta">"Con una pala que absorbe, el codo deja de pagarlo."</p>
+      </div>
+      <div class="notes">
+        <p><b>Claims:</b> solo «menos vibraciones». Ni una cifra.</p>
+      </div>
+    </article>
+
+    <!-- V4 -->
+    <article class="vid">
+      <div class="vid-top">
+        <span class="vid-id">V04</span>
+        <span class="vid-title">Una pala no debería morir en una temporada</span>
+        <span class="chip fmt">Rompe-mitos</span>
+        <span class="chip">35–45 s</span>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Gancho</b><i>literal</i></div>
+        <p class="literal">"Llevas años cambiando de pala cada temporada y has asumido que eso es normal."</p>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Desarrollo</b><i>idea, no guion</i></div>
+        <div class="idea">
+          <p>Desmontar la creencia: la pala no se desfonda porque el pádel la castigue, se desfonda porque está fabricada para durar poco. Enseñar la diferencia entre una pala producida en masa y una hecha a mano, y por qué una aguanta lo que la otra no. Cerrar apoyándose en el test de Testea: no lo decimos nosotros, lo dijo quien las analizó.</p>
+          <div class="lever">
+            <b>Palanca de retención</b>
+            El gancho nombra algo que hace desde hace años sin cuestionarlo, y le sugiere que le han vendido una mentira. Quien se siente identificado necesita saber si le han estado tomando el pelo.
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Cierre</b><i>literal</i></div>
+        <p class="literal cta">"Cambiar de pala cada año no es normal. Es lo que pasa cuando no está bien hecha."</p>
+      </div>
+      <div class="notes">
+        <p><b>Este es el ángulo que ha dado la primera señal de compra en la cuenta.</b> Aquí lo colocamos en el nivel donde de verdad pertenece: el jugador que sufre el problema pero aún no busca solución.</p>
+        <p><b>Claims:</b> «testada por Testea» y «alta resistencia». Ambos respaldados por el informe.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ NIVEL 3 ============ -->
+<section class="level" id="n3" style="--lvl:var(--n3)">
+  <div class="wrap">
+    <div class="level-head">
+      <span class="lnum">3</span>
+      <h2>Consciente de la solución</h2>
+      <span class="tag">TOFU + conjuntos de 1 interés</span>
+    </div>
+    <p class="level-note">Ya compara marcas y está a punto de decidir. Aquí sí buscamos el clic a la web. Sigue sin descuento: eso es del nivel 5.</p>
+
+    <!-- V5 -->
+    <article class="vid">
+      <div class="vid-top">
+        <span class="vid-id">V05</span>
+        <span class="vid-title">Fabricada en masa vs fabricada a mano</span>
+        <span class="chip fmt">Comparación</span>
+        <span class="chip">40–50 s</span>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Gancho</b><i>literal</i></div>
+        <p class="literal">"Las dos cuestan lo mismo. Una sale de una máquina, la otra sale de unas manos."</p>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Desarrollo</b><i>idea, no guion</i></div>
+        <div class="idea">
+          <p>Poner las dos formas de fabricar cara a cara. La producción en masa: molde, prensa, miles iguales, control de calidad por muestreo. La artesanal: cada pala pasa por manos, se revisa una a una, y quien la hace responde por ella. Aterrizar en lo que eso significa cuando llevas seis meses jugando con ella.</p>
+          <div class="lever">
+            <b>Palanca de retención</b>
+            El gancho plantea una injusticia: mismo precio, procesos opuestos. Quien está comparando marcas quiere saber en qué lado está la pala que se iba a comprar.
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Cierre</b><i>literal</i></div>
+        <p class="literal cta">"Antes de elegir tu próxima pala, mira cómo está hecha."</p>
+      </div>
+      <div class="notes">
+        <p class="warn"><b>Cuidado.</b> El vídeo no nombra ni señala a ninguna marca concreta. Compara procesos, no competidores. Bonabola no ataca a nadie.</p>
+      </div>
+    </article>
+
+    <!-- V6 -->
+    <article class="vid">
+      <div class="vid-top">
+        <span class="vid-id">V06</span>
+        <span class="vid-title">Cómo elegir tu pala en 3 pasos</span>
+        <span class="chip fmt">How-to</span>
+        <span class="chip">45–55 s</span>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Gancho</b><i>literal</i></div>
+        <p class="literal">"Elegir pala parece complicado hasta que entiendes que solo son tres decisiones."</p>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Desarrollo</b><i>idea, no guion</i></div>
+        <div class="idea">
+          <p>Los tres pasos, uno a uno:</p>
+          <ol>
+            <li><strong>Modelo.</strong> Hepta si ganas los puntos con criterio y control. Bevel si dominas desde el fondo con potencia. Balance medio contra balance alto.</li>
+            <li><strong>Dureza.</strong> Soft, Mid, Hard o Ultra, según cómo pegues y cuánto juegues.</li>
+            <li><strong>Color.</strong> Cuatro. Y todas las combinaciones valen lo mismo.</li>
+          </ol>
+          <p>Enseñar las palas de verdad mientras se explica cada paso. Quien lo ve tiene que acabar sabiendo cuál es la suya.</p>
+          <div class="lever">
+            <b>Palanca de retención</b>
+            El gancho promete simplificar algo que se percibe como difícil. La estructura de tres pasos cerrados sostiene hasta el final: nadie abandona una lista de tres en el paso dos.
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Cierre</b><i>literal</i></div>
+        <p class="literal cta">"Modelo, dureza y color. Configura la tuya aquí abajo."</p>
+      </div>
+      <div class="notes">
+        <p><b>El único vídeo que nombra Hepta y Bevel.</b> Educa sobre el catálogo real y lleva directo al configurador, pero todavía no pide la compra: solo que entre a elegir.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ NIVEL 4 ============ -->
+<section class="level" id="n4" style="--lvl:var(--n4)">
+  <div class="wrap">
+    <div class="level-head">
+      <span class="lnum">4</span>
+      <h2>Consciente del producto</h2>
+      <span class="tag">MOFU · Retargeting</span>
+    </div>
+    <p class="level-note">Ya conoce Bonabola y no ha comprado. Aquí sí se pide la compra. Lo que le falta no es información: es que alguien como él le diga que salió bien.</p>
+
+    <!-- V7 -->
+    <article class="vid">
+      <div class="vid-top">
+        <span class="vid-id">V07</span>
+        <span class="vid-title">30 días con una Bonabola</span>
+        <span class="chip fmt">Reseña · UGC</span>
+        <span class="chip">40–60 s</span>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Gancho</b><i>literal</i></div>
+        <p class="literal">"250 euros por una pala que no conocía. Y ha sido la mejor decisión que he tomado en el pádel."</p>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Desarrollo</b><i>idea, no guion</i></div>
+        <div class="idea">
+          <p>Un jugador real cuenta su experiencia después de treinta días: por qué se arriesgó con una marca que no conocía, qué notó al primer golpe, y cómo está la pala ahora comparada con el día uno. Sin script: que hable como le hablaría a un amigo en el vestuario, con sus palabras. Que mencione algo concreto (el tacto, el control, cómo aguanta, el codo).</p>
+          <div class="lever">
+            <b>Palanca de retención</b>
+            El gancho pone el precio por delante y admite el miedo: una marca desconocida y 250 euros. Quien está en esa misma duda no puede dejar de ver si le salió bien.
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Cierre</b><i>literal</i></div>
+        <p class="literal cta">"Un mes después, la volvería a comprar sin pensármelo. Y tienes un 10% en la primera. Aquí abajo."</p>
+      </div>
+      <div class="notes">
+        <p><b>Casting.</b> No busques un influencer. Busca un jugador de 18–34 que juegue de verdad y ya tenga una Bonabola. Cuanto más se parezca a un vídeo que subiría él solo, mejor rinde.</p>
+        <p><b>El cierre lo dice el jugador, no la marca.</b> Si lo dice él, pierde el tono de anuncio.</p>
+        <p><b>Claims:</b> ninguno de marca. Todo lo que se afirma sale de la boca de quien lo ha probado, y eso es justo lo que le da fuerza.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ NIVEL 5 ============ -->
+<section class="level" id="n5" style="--lvl:var(--n5)">
+  <div class="wrap">
+    <div class="level-head">
+      <span class="lnum">5</span>
+      <h2>El más consciente</h2>
+      <span class="tag">BOFU · Retención + escalado</span>
+    </div>
+    <p class="level-note">Está listo. Lo único que le queda es la duda de si la marca exagera. Aquí se cierra, y se cierra con un tercero hablando por nosotros.</p>
+
+    <!-- V8 -->
+    <article class="vid">
+      <div class="vid-top">
+        <span class="vid-id">V08</span>
+        <span class="vid-title">Testea la analizó. Esto salió.</span>
+        <span class="chip fmt">Prueba social</span>
+        <span class="chip">20–30 s</span>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Gancho</b><i>literal</i></div>
+        <p class="literal">"No te pedimos que nos creas. Pregúntaselo a quien nos analizó sin conocernos."</p>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Desarrollo</b><i>idea, no guion</i></div>
+        <div class="idea">
+          <p>Testea analiza las palas de las grandes marcas del mercado internacional. Analizaron las nuestras sin que tuviéramos nada que decir al respecto, y las Bonabola destacaron por resistencia. Enseñar el informe, la entidad, el resultado. Aquí no hablamos nosotros: habla el test.</p>
+          <div class="lever">
+            <b>Palanca de retención</b>
+            A quien ya está a punto de comprar solo le queda una duda: si la marca exagera. El gancho se la quita de encima poniendo a un tercero por delante. Es corto porque no necesita más.
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label"><b>Cierre</b><i>literal</i></div>
+        <p class="literal cta">"Nosotros lo decimos, pero ellos lo comprobaron. Elige la tuya aquí abajo."</p>
+      </div>
+      <div class="notes">
+        <p><b>Sin urgencia inventada.</b> Ni «solo hoy» ni «últimas unidades». A este público no le hace falta: ya está listo, solo necesita la última confirmación de que no se equivoca.</p>
+        <p class="warn"><b>Línea roja.</b> El informe dice que destacan por su resistencia. No que sean las más resistentes del mercado. El vídeo no puede decir eso.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="rules">
+  <div class="wrap">
+    <h2>Innegociables</h2>
+    <ul>
+      <li><b>Cero cifras sin respaldo.</b> Nada de números de producción, porcentajes o rankings que no salgan del informe de Testea.</li>
+      <li><b>Claims aprobados y punto:</b> hecho a mano, fábrica propia en España, testada de forma independiente, menos vibraciones, alta resistencia.</li>
+      <li><b>Ninguna marca competidora se nombra.</b> Se comparan procesos, no rivales.</li>
+      <li><b>La urgencia es real o no está.</b> El 10% de primera compra es la única palanca, y no lleva cuenta atrás falsa.</li>
+      <li><b>Vertical siempre.</b> Casi todo el presupuesto va a Reels y Stories: el vídeo se piensa para móvil desde el primer fotograma.</li>
+      <li><b>Los dos vídeos de un mismo nivel usan formatos distintos.</b> Nunca dos storytelling seguidos, nunca dos comparativas.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="brandline">B O N A B O L A</p>
+    <p>Meta Ads · Briefing creativo de vídeos por nivel de consciencia · Julio 2026</p>
+    <p>Navy Marketing · carlos@navymarketing.es · nuria@navymarketing.es · 681 24 33 55</p>
+  </div>
+</footer>
+
+</body>
+</html>
